@@ -96,3 +96,82 @@ let head = {
   };
 
 console.log(bed.glasses);
+class Animal{
+    constructor(value){
+        this.eyes=2
+        this.legs=4
+        this.animal=value
+    }
+    showLeg(){
+        return this.legs
+    }
+}
+const Tiger=new Animal("tiger");
+console.log(Tiger.showLeg());
+console.log(Tiger);
+class Cat extends Animal{
+    constructor(ui,value){
+        super(value)
+        this.legs=ui
+    }
+    xvost=0
+    sayMyau(){
+        console.log("miau miau");
+    }
+    get Showl(){
+       return console.log(this.legs);
+    }
+    get x(){
+        return  console.log(this.xvost);
+    }
+    set tx(bb){
+       return  this.xvost=bb
+      
+    }
+}
+const cat = new Cat(5,"cat");
+console.log(cat.showLeg());
+cat.sayMyau()
+cat.Showl;
+cat.x
+cat.tx=1
+cat.x
+cat.eyes=4;
+cat.x
+cat.xvost=1
+console.log(cat);
+class User{
+    constructor(value){
+        this._name=value.name;
+        this.age=24;
+        this.status=value.status
+    }
+    _fithc=true
+    sayHi(){
+        console.log("hi",this.name);
+    }
+    get name(){
+        return this._name
+    }
+    set name(value){
+        return this._name=value
+    }
+}
+const newUser=new User({name:"jenya",status:"admin"})
+newUser.sayHi();
+console.log(newUser);
+console.log(newUser.name="vasili");
+console.log(newUser.name);
+console.log(newUser);
+class gost extends User{
+    constructor(value){
+        super(value)
+        this.veri=value.veri
+    }
+
+}
+const nn=new gost({name,status:"gost",veri:true});
+console.log(nn);
+console.log(nn.name="petia");
+console.log(nn.name
+    );
