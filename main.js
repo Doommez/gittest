@@ -175,3 +175,98 @@ console.log(nn);
 console.log(nn.name="petia");
 console.log(nn.name
     );
+
+    //codwars!!!
+
+    function createPhoneNumber(numbers){
+        numbers.splice(0,0,"(")
+         numbers.splice(4,0,") ");
+         numbers.splice(8,0,"-");
+    
+         return numbers.join("")
+       }
+       console.log(createPhoneNumber([1,2,3,4,5,5,7,8,9,0]));
+
+       //next kata
+
+       function descendingOrder(n){
+        //...
+        let m=n+""
+        m.split("");
+       function cc(a,b){
+           return b-a
+       }
+         console.log(m.split("").sort(cc).join("")); 
+       
+      }
+      descendingOrder(15548)
+
+      //next kata
+      function squareDigits(num){
+         let n= num+"";
+         let s=n.split("");
+         let res="";
+         for(let i=0;i<s.length;i++){
+           let d= Math.pow( parseInt(s[i]), 2) 
+            res=res+d
+         }
+
+        return console.log(res); ;
+      }
+      squareDigits(123)
+
+      //next kata
+
+      function openOrSenior(data){
+        // ...
+        let res=[];
+        for(let i=0;i<data.length;i++){
+          if(data[i][0]>55&&data[i][1]>7){
+           
+            res.push("Senior")
+          }
+          else{
+              res.push("Open")
+          }
+        }
+        return console.log(res); res; 
+      }
+      openOrSenior([[45, 12],[55,21],[19, -2],[104, 20]])
+
+      //next kata
+
+      function solution(number){
+        if(number>0){
+          let res=0
+           for(let i=0;i<number;i++){
+          if(i%3==0||i%5==0){
+            res+=i
+          }
+        }
+          return res
+        }
+        else {
+          return 0
+        }
+       
+      }
+     console.log(solution(10)); 
+     
+     //next kata
+     //count(['james', 'james', 'john']) 
+     function count(array){
+        //your code here
+        let obj={}
+        let i=0
+        for(key of array){
+            if(key in obj){
+                obj[key]+=1
+                continue
+            }
+            else{
+                obj[key]=1
+            }
+        }
+        return obj
+      }
+      count(['james', 'james', 'john']) 
