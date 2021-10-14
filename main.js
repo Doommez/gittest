@@ -146,6 +146,7 @@ class User{
         this.age=24;
         this.status=value.status
     }
+
     _fithc=true
     sayHi(){
         console.log("hi",this.name);
@@ -175,6 +176,91 @@ console.log(nn);
 console.log(nn.name="petia");
 console.log(nn.name
     );
+
+    function LIL(){
+       /* var self=this */
+        this.name="lklj";
+
+    }
+    LIL.prototype.sayHi=function(){
+        console.log("hi "+this.name);
+    }
+    function Li(){
+        LIL.call(this)
+    }
+    Li.prototype=Object.create(LIL.prototype);
+    Li.prototype.constructor=Li;
+ let newli=new Li("ll")
+   
+    console.log(newli.sayHi());
+  
+    // запросы
+
+    const requestUrl="http://fe.it-academy.by/Examples/test.html"
+
+    const xhr= new XMLHttpRequest();
+    xhr.open("GET",requestUrl);
+    xhr.send();
+    xhr.onreadystatechange=function(){
+        console.log(this.response); 
+      
+    }
+xhr.onerror=function(){
+    console.log("os");
+}
+
+    //PROMIS
+
+    /* console.log(`request data...`);
+    setTimeout(()=>{
+        console.log("prepering data..");
+        const backData={
+            serv:"avs",
+            port:2000,
+            status:"working"
+
+        }  
+         setTimeout(()=>{
+        console.log("data recived..");
+         backData.mod=true;
+         console.log(`reserv data..`,backData);
+         
+    },2000)
+
+    },2000)
+  */
+
+    const promis=new Promise(function(resolve,reject){
+        setTimeout(()=>{
+            console.log("prepering data..");
+            const backData={
+                serv:"avs",
+                port:2000,
+                status:"working"
+    
+            } 
+           resolve(backData);
+           reject("ERROR")
+           
+         },2000)
+    });
+    promis.then(data=>{
+        console.log("promis end");
+        console.log(data);
+       return new Promise((resolve,reject)=>{
+           setTimeout(()=>{
+            data.modifi=true;
+            resolve(data)
+           },2000)
+       
+        })
+    }).then(data=>{
+        
+        console.log(data);
+    }).finally(()=>{
+        console.log("завершен");
+    })
+    
 
     //codwars!!!
 
@@ -270,3 +356,25 @@ console.log(nn.name
         return obj
       }
       count(['james', 'james', 'john']) 
+      function addP(){
+let p=new Promise((resolve,reject)=>{
+    
+         
+      
+        console.log("cdjsaf");
+        let objPP={
+            name:"dfadfa"
+            
+        }
+        resolve(objPP)
+    
+
+})
+p.then(data=>{
+    console.log("sdfadfasdfasdfasdfadfasdfasa",data);
+}
+    
+).finally(()=>{
+    console.log("второй промис завершен");
+})
+}
