@@ -356,16 +356,44 @@ xhr.onerror=function(){
         return obj
       }
       count(['james', 'james', 'john']) 
+
     //next kata
+
     function disemvowel(str) {
-        let arr=["e","y","u","i","o","a","O"]
-      return  str.split("").map((item,index)=>{
-            for(let i=0;i<arr.length;i++){
-                if(item!=arr[i]){
+        let arr=["e","y","u","i","o","a","O","E","Y","U","I","A"]
+      return  str.split("").map((item)=>{
+         let t=true;
+           TTT: for(let i=0;i<arr.length;i++){
+              if(arr[i]==item){
+                 t=false;
+               
+              }
+                if(t&&i==arr.length-1){
                     return item
                 }
+                  
             }
             
-        })
+        }).join("")
       }
     console.log(disemvowel("This website is for losers LOL!"));  
+    console.log(disemvowel("No offense but,\nYour writing is among the worst I've ever read"));  
+    console.log(disemvowel("What are you, a communist?"));  
+    
+    //asdf
+    let numbers = [2, 3, 5, 7, 11, 13, 17];
+    function currentSums(numbers) {
+      
+        let rez=[];
+         numbers.reduce((summ,item)=>{
+           
+         let s=summ+item  
+         console.log(s);
+        rez.push(s)
+          return s
+        },0)
+        return rez
+    }
+   console.log(currentSums(numbers)); 
+
+  
