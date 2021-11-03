@@ -356,25 +356,16 @@ xhr.onerror=function(){
         return obj
       }
       count(['james', 'james', 'john']) 
-      function addP(){
-let p=new Promise((resolve,reject)=>{
-    
-         
-      
-        console.log("cdjsaf");
-        let objPP={
-            name:"dfadfa"
+    //next kata
+    function disemvowel(str) {
+        let arr=["e","y","u","i","o","a","O"]
+      return  str.split("").map((item,index)=>{
+            for(let i=0;i<arr.length;i++){
+                if(item!=arr[i]){
+                    return item
+                }
+            }
             
-        }
-        resolve(objPP)
-    
-
-})
-p.then(data=>{
-    console.log("sdfadfasdfasdfasdfadfasdfasa",data);
-}
-    
-).finally(()=>{
-    console.log("второй промис завершен");
-})
-}
+        })
+      }
+    console.log(disemvowel("This website is for losers LOL!"));  
