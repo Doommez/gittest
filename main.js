@@ -377,24 +377,22 @@ console.log(disemvowel("What are you, a communist?"));
 //asdf
 let numbers = [2, 3, 5, 7, 11, 13, 17];
 function currentSums(numbers) {
-  let rez = [];
-  let count=[];
-  let b=''
-  numbers.reduce((summ, item,i,arr) => {
+  let result = [];
+  let count = [];
+  let b = "";
+  numbers.reduce((summ, item, i, arr) => {
     let s = summ + item;
     console.log(s);
-    if(i===0){
-        b+=item
-    }else
-    b+="+"+item
-    count.push(b)
-    
-    rez.push(s);
+    if (i === 0) {
+      b += item;
+    } else b += "+" + item;
+    count.push(b);
+
+    result.push(s);
     return s;
   }, 0);
   console.log(count);
-  return `[${count}]=[${rez}]`;
-  
+  return `[${count}]=[${result}]`;
 }
 console.log(currentSums(numbers));
 let summ = 0;
@@ -407,40 +405,36 @@ for (let i = 10; i <= 190; i++) {
 }
 console.log(summ / znach);
 
-function sortWords(n) {
+function sortWords(...rest) {
+  console.log(rest);
   let arr = ["ё", "у", "е", "ы", "а", "о", "э", "я", "и", "ю"];
-  let t = [];
-  let rez=[];
-  let arrWords = n.split(" ");
-   arrWords.forEach((element, index, arra) => {
-    let g = 0;
+  let arrForSort = [];
+  let result = [];
+  let arrWords = rest;
+  arrWords.forEach((element, index, arra) => {
+    let countGl = 0;
     element.split("").forEach((item, ind, array) => {
       for (let i = 0; i < arr.length; i++) {
         if (item == arr[i]) {
-          ++g;
+          ++countGl;
         }
-        t[index] = { g: g, index: index };
-       
+        arrForSort[index] = { countGl: countGl, index: index };
       }
     });
-
-    t.sort((a, b) => {
-      if (a.g > b.g) {
+    arrForSort.sort((a, b) => {
+      if (a.countGl > b.countGl) {
         return -1;
       }
     });
-   
   });
-  ttt: for(let j=0;j<t.length;j++){// здесь остановился, надо распределить по порядку возможно новый фор
-    for(let i=0;i<arrWords.length;i++){
-        if(t[j].index==i){
-              rez[j]=arrWords[i];
-              continue ttt;
-        }
-      
+  ttt: for (let j = 0; j < arrForSort.length; j++) {
+    for (let i = 0; i < arrWords.length; i++) {
+      if (arrForSort[j].index == i) {
+        result[j] = arrWords[i];
+        continue ttt;
+      }
     }
-    
+  }
+  return result.join(" ");
 }
-return rez.join(" ")
-}
-console.log(sortWords("однажды в студеную зимнюю пору"));
+console.log(sortWords("однажды","в","студеную","зимнюю","пору"));
