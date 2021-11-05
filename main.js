@@ -378,13 +378,23 @@ console.log(disemvowel("What are you, a communist?"));
 let numbers = [2, 3, 5, 7, 11, 13, 17];
 function currentSums(numbers) {
   let rez = [];
-  numbers.reduce((summ, item) => {
+  let count=[];
+  let b=''
+  numbers.reduce((summ, item,i,arr) => {
     let s = summ + item;
     console.log(s);
+    if(i===0){
+        b+=item
+    }else
+    b+="+"+item
+    count.push(b)
+    
     rez.push(s);
     return s;
   }, 0);
-  return rez;
+  console.log(count);
+  return `[${count}]=[${rez}]`;
+  
 }
 console.log(currentSums(numbers));
 let summ = 0;
@@ -402,18 +412,15 @@ function sortWords(n) {
   let t = [];
   let rez=[];
   let arrWords = n.split(" ");
-  console.log(arrWords);
-   let a= arrWords.forEach((element, index, arra) => {
+   arrWords.forEach((element, index, arra) => {
     let g = 0;
     element.split("").forEach((item, ind, array) => {
       for (let i = 0; i < arr.length; i++) {
         if (item == arr[i]) {
           ++g;
-          console.log(item);
-          console.log(g);
         }
         t[index] = { g: g, index: index };
-        console.log(t);
+       
       }
     });
 
@@ -422,12 +429,18 @@ function sortWords(n) {
         return -1;
       }
     });
-    console.log(t);
    
   });
-  for(let j=0;j<t.length;j++){// здесь остановился, надо распределить по порядку возможно новый фор
-    rez[t[j].index]=arrWords[0]
+  ttt: for(let j=0;j<t.length;j++){// здесь остановился, надо распределить по порядку возможно новый фор
+    for(let i=0;i<arrWords.length;i++){
+        if(t[j].index==i){
+              rez[j]=arrWords[i];
+              continue ttt;
+        }
+      
+    }
+    
 }
-console.log(rez);
+return rez.join(" ")
 }
-console.log(sortWords("Шел дожди, мне грустно"));
+console.log(sortWords("однажды в студеную зимнюю пору"));
