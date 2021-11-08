@@ -437,4 +437,5 @@ function sortWords(...rest) {
   }
   return result.join(" ");
 }
+
 console.log(sortWords("однажды","в","студеную","зимнюю","пору"));
