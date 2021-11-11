@@ -143,9 +143,10 @@ class User {
     this._name = value.name;
     this.age = 24;
     this.status = value.status;
+     _fithc = true;
   }
 
-  _fithc = true;
+ 
   sayHi() {
     console.log("hi", this.name);
   }
@@ -168,7 +169,7 @@ class gost extends User {
     this.veri = value.veri;
   }
 }
-const nn = new gost({ name, status: "gost", veri: true });
+const nn = new gost({ name:"", status: "gost", veri: true });
 console.log(nn);
 console.log((nn.name = "petia"));
 console.log(nn.name);
@@ -439,3 +440,33 @@ function sortWords(...rest) {
 }
 
 console.log(sortWords("однажды","в","студеную","зимнюю","пору"));
+
+//каррирование
+
+const curr=a=>b=>c=>{
+  return a*b*c
+}
+
+console.log(curr(1)(2)(5));
+
+class Count{
+  constructor(a=0){
+    this.result=a
+  }
+  log(){
+    console.log(this.result)
+  }
+  rest(){
+    this.result=0
+  }
+  count(b){
+    this.result+=b
+    return this.result
+  }
+}
+console.log("vvvvvvvvvvvvvv");
+let c=new Count()
+c.count(4)
+c.log()
+c.rest()
+c.log()
